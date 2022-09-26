@@ -9,9 +9,11 @@
 
 import sys
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtWidgets import QMainWindow, QApplication, QAction, qApp
-from Log import Ui_Dialog  # add_QSO
+from PyQt5.QtWidgets import QMainWindow, QApplication, QAction, qApp , QDialog
 from Logm import Ui_Editlog # edit_QSO
+from Log import Ui_Dialog # add_QSO
+import Log as add
+import Logm as edit
 import sqlite3
 import PyQt5.QtWidgets as qw
 
@@ -46,10 +48,13 @@ results = c.fetchall()
 rows = len(results)
 conn.close()
 
-class Log(QMainWindow, Ui_Dialog):
-    def __init__(self, parent=None):
-        super(Log, self).__init__(parent)
-        self.setupUi(self)
+class ADD(QDialog):
+    def __init__(self):
+        QDialog.__init__(self)
+        self.ADD=add.Ui_Dialog()
+        self.ADD.setupUi(self)
+
+
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -204,6 +209,7 @@ class Ui_MainWindow(object):
         print("input")
     def addAct(self):
         print("add")
+        ADD.show()
     def searchAct(self):
         print("search")
     def EXITAct(self):
@@ -312,5 +318,6 @@ if __name__ == "__main__":
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
+    ADD = ADD()
     MainWindow.show()
     sys.exit(app.exec_())

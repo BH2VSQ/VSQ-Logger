@@ -12,7 +12,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import QDate
 
 class Ui_Editlog(object):
-    def setupUi(self, Dialog):
+    def setupUi(self, Editlog):
         Dialog.setObjectName("Dialog")
         Dialog.resize(1370, 769)
         self.buttonBox = QtWidgets.QDialogButtonBox(Dialog)
