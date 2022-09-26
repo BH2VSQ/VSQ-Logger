@@ -735,10 +735,11 @@ class Ui_Dialog(object):
                    self.comboBox_11.currentText()))
         conn.commit()
         conn.close()
-
-        exit()
+        "Dialog = QtWidgets.QDialog()"
+        Dialog.close()
     def reject(self):
-        exit()
+        "Dialog = QtWidgets.QDialog()"
+        Dialog.close()
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
